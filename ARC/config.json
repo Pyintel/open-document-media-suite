@@ -2,6 +2,10 @@
   "id": "open-document-media-suite",
   "name": "Document & Media Suite",
   "description": "PDF, Word, PowerPoint, and Ffmpeg audio/video conversion tools.",
+  "setup": {
+    "autoInstallDependencies": true,
+    "command": "bun install || npm install"
+  },
   "prerequisites": [
     {
       "name": "ffmpeg",
