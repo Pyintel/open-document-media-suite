@@ -1,0 +1,21 @@
+{
+  "id": "open-document-media-suite",
+  "name": "Document & Media Suite",
+  "description": "PDF, Word, PowerPoint, and Ffmpeg audio/video conversion tools.",
+  "prerequisites": [
+    {
+      "name": "ffmpeg",
+      "check": "ffmpeg -version",
+      "install": {
+        "win32": "winget install --id=Gyan.FFmpeg -e",
+        "darwin": "brew install ffmpeg",
+        "linux": "sudo apt update && sudo apt install -y ffmpeg"
+      }
+    }
+  ],
+  "vectorize": {
+    "includes": ["**/*.md"]
+  },
+  "tools": ["tools/*.js"],
+  "commands": ["skills/*/SKILL.md"]
+}
