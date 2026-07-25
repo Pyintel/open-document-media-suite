@@ -1,7 +1,24 @@
 const path = require("path");
 const fs = require("fs");
-const sharp = require("sharp");
-const ffmpeg = require("fluent-ffmpeg");
+
+if (typeof module !== "undefined" && module.paths) {
+  module.paths.push(path.join(__dirname, "..", "node_modules"));
+}
+
+function safeRequire(pkgName) {
+  try {
+    return require(pkgName);
+  } catch (err) {
+    try {
+      return require(path.join(__dirname, "..", "node_modules", pkgName));
+    } catch {
+      return null;
+    }
+  }
+}
+
+const sharp = safeRequire("sharp");
+const ffmpeg = safeRequire("fluent-ffmpeg");
 
 // ---- Helpers ---------------------------------------------------------------
 

@@ -1,6 +1,24 @@
 const fs = require("fs");
-const mammoth = require("mammoth");
-const JSZip = require("jszip");
+const path = require("path");
+
+if (typeof module !== "undefined" && module.paths) {
+  module.paths.push(path.join(__dirname, "..", "node_modules"));
+}
+
+function safeRequire(pkgName) {
+  try {
+    return require(pkgName);
+  } catch (err) {
+    try {
+      return require(path.join(__dirname, "..", "node_modules", pkgName));
+    } catch {
+      return null;
+    }
+  }
+}
+
+const mammoth = safeRequire("mammoth");
+const JSZip = safeRequire("jszip");
 
 // Extract text from OOXML XML by concatenating all <tag>...</tag> text content
 function extractXmlText(xml, tag) {
