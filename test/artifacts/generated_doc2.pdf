@@ -1,23 +1,108 @@
-%PDF-1.4
-1 0 obj <</Type /Catalog /Pages 2 0 R>> endobj
-2 0 obj <</Type /Pages /Kinds [3 0 R] /Count 1>> endobj
-3 0 obj <</Type /Page /Parent 2 0 R /Resources <</Font <</F1 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>>>>> /Contents 4 0 R>> endobj
-4 0 obj <</Length 357>> stream
-BT
-/F1 12 Tf
-72 712 Td
-(# Pyintel Production Document
-
-Welcome to **Pyintel Open Document & Media Suite**.
-This is a permanent test asset for verifying real document processing.
-
-## Features
-- Native PDF Generation & Merging
-- Native Word \(.docx\) & PowerPoint \(.pptx\) OpenXML Extraction
-- Image, Audio, and Video Format Conversion
-) Tj
-ET
+%PDF-1.3
+%ÿÿÿÿ
+7 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 612 792]
+/Contents 5 0 R
+/Resources 6 0 R
+/UserUnit 1
+>>
+endobj
+6 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 8 0 R
+>>
+/ColorSpace <<
+>>
+>>
+endobj
+5 0 obj
+<<
+/Length 423
+/Filter /FlateDecode
+>>
+stream
+xœ•“=ŽÜ0…{Ÿ‚X‡¤ÈG	¸éL¤Ú±º-rÿfAË3Þ¬ Ó²~Èï‘BLL/BLÑ”^ß¦?“œö¾^÷M¡P
+‘¹T£ëÛôå»(]ûôëâk¯ÊÎ¡è°p”04t¬Êfè(á¸ÁóîBü›®?¦o×éçäFm³ÔZOÉc¡ÂtÉÔ(è^9}ùÌzp&?Ã(+”-ÿX”=O[¾\Hœ.º>2‹»ž€-ŠòþåÄ
+]èE.¸A°Þ¹’ J® Q¢À·5vÕ=T9°ÐörI\4`ˆGhöÃ!Yœ„ÇèVÙÒ”ýÅÓb­ÎŸ¥½‘°ðÄˆòlèÂsSœ\§¬Ü\ÙÖŽv!ofÙÐH•£,’ røñÞðPÄPý,˜è\›žù/°…ŒéðlEz¯êº7¦jhÎùvgø/b—à¡ÇÙp÷ˆÙJîN÷j7Kç{Ô°£Ç`>)Ú›ÍÕÛÉÕÑm³o<Æ&“Ëc¸ú(BžlF7Ýå8Ð£Ú•íƒÁ?ÌEjµ2¸5C~pþfÞÏŠÞƒ}Î
 endstream
 endobj
-trailer <</Root 1 0 R>>
+10 0 obj
+(PDFKit)
+endobj
+11 0 obj
+(PDFKit)
+endobj
+12 0 obj
+(D:20260725164228Z)
+endobj
+9 0 obj
+<<
+/Producer 10 0 R
+/Creator 11 0 R
+/CreationDate 12 0 R
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+4 0 obj
+<<
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/Names 2 0 R
+>>
+endobj
+1 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [7 0 R]
+>>
+endobj
+2 0 obj
+<<
+/Dests <<
+  /Names [
+]
+>>
+>>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000001074 00000 n 
+0000001131 00000 n 
+0000001012 00000 n 
+0000000991 00000 n 
+0000000238 00000 n 
+0000000131 00000 n 
+0000000015 00000 n 
+0000000894 00000 n 
+0000000819 00000 n 
+0000000733 00000 n 
+0000000758 00000 n 
+0000000783 00000 n 
+trailer
+<<
+/Size 13
+/Root 3 0 R
+/Info 9 0 R
+/ID [<20f4c816dd077e1a16dc42bbe0537afc> <20f4c816dd077e1a16dc42bbe0537afc>]
+>>
+startxref
+1178
 %%EOF
