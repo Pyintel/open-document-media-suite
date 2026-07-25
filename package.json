@@ -4,6 +4,6 @@
   "description": "PDF, Word, PowerPoint, Audio and Video Conversion Module for Apex Arc",
   "author": "Pyintel",
   "scripts": {
-    "test": "node test/matrix.test.js"
+    "test": "node test/run_exhaustive_matrix.js"
   }
 }
