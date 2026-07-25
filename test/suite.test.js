@@ -10,17 +10,17 @@ async function runProductionTestSuite() {
   console.log("🔥 Running REAL ASSET Production Test Suite for open-document-media-suite...\n");
 
   const fixDir = path.join(__dirname, "fixtures");
-  const tmpDir = path.join(__dirname, "tmp_test_output");
-  if (fs.existsSync(tmpDir)) fs.rmSync(tmpDir, { recursive: true, force: true });
-  fs.mkdirSync(tmpDir, { recursive: true });
+  const artifactDir = path.join(__dirname, "artifacts");
+  if (!fs.existsSync(artifactDir)) fs.mkdirSync(artifactDir, { recursive: true });
 
   const mdFixture = path.join(fixDir, "sample.md");
   const pngFixture = path.join(fixDir, "sample.png");
   const wavFixture = path.join(fixDir, "sample.wav");
 
-  const pdfOutput = path.join(tmpDir, "generated_doc.pdf");
-  const pdfOutput2 = path.join(tmpDir, "generated_doc2.pdf");
-  const mergedPdfOutput = path.join(tmpDir, "merged_doc.pdf");
+  const pdfOutput = path.join(artifactDir, "generated_doc.pdf");
+  const pdfOutput2 = path.join(artifactDir, "generated_doc2.pdf");
+  const mergedPdfOutput = path.join(artifactDir, "merged_doc.pdf");
+  const splitPdfOutput = path.join(artifactDir, "split_doc.pdf");
   const docxFixture = path.join(fixDir, "sample.docx");
   const pptxFixture = path.join(fixDir, "sample.pptx");
 
@@ -38,7 +38,7 @@ async function runProductionTestSuite() {
   assert.ok(fs.existsSync(pdfOutput), "Generated PDF file must exist");
   const pdfBuf = fs.readFileSync(pdfOutput);
   assert.ok(pdfBuf.toString("utf8", 0, 8).includes("%PDF"), "Generated PDF must contain valid %PDF magic header");
-  console.log(`✅ 1. markdown_to_pdf: REAL PDF GENERATED (${pdfBuf.length} bytes, %PDF magic header verified)`);
+  console.log(`✅ 1. markdown_to_pdf: REAL PDF GENERATED (${pdfBuf.length} bytes -> test/artifacts/generated_doc.pdf)`);
 
   // Generate second PDF for merging
   await pdfTools.markdown_to_pdf.execute({ markdownPath: mdFixture, outputPath: pdfOutput2 });
@@ -56,13 +56,13 @@ async function runProductionTestSuite() {
   const mergedBuf = fs.readFileSync(mergedPdfOutput);
   assert.ok(mergedBuf.toString("utf8", 0, 8).includes("%PDF"), "Merged PDF must preserve %PDF header");
   assert.ok(mergedBuf.length >= pdfBuf.length, "Merged PDF must be larger or equal to single PDF");
-  console.log(`✅ 3. pdf_merge: REAL PDF MERGE PASSED (Output ${mergedBuf.length} bytes)`);
+  console.log(`✅ 3. pdf_merge: REAL PDF MERGE PASSED (${mergedBuf.length} bytes -> test/artifacts/merged_doc.pdf)`);
 
   // 4. pdf_split: Verify page splitting on real PDF
   const res4 = JSON.parse(await pdfTools.pdf_split.execute({ inputPath: pdfOutput, ranges: "1" }));
   assert.strictEqual(res4.status, "success", "pdf_split status must be success");
   assert.ok(fs.existsSync(res4.outputPath), "Split PDF output file must exist");
-  console.log("✅ 4. pdf_split: REAL PDF SPLIT PASSED");
+  console.log(`✅ 4. pdf_split: REAL PDF SPLIT PASSED (-> ${res4.outputPath})`);
 
   // 5. read_docx: Verify OpenXML text parsing from real Word doc
   const res5 = JSON.parse(await docxTools.read_docx.execute({ path: docxFixture }));
@@ -82,20 +82,24 @@ async function runProductionTestSuite() {
   assert.ok(fs.existsSync(res7.outputPath), "Converted image output file must exist");
   const imgOutBuf = fs.readFileSync(res7.outputPath);
   assert.ok(imgOutBuf.length > 0, "Converted image buffer size must be > 0");
-  console.log(`✅ 7. convert_image: REAL IMAGE CONVERSION PASSED (${res7.engine}, Output ${imgOutBuf.length} bytes)`);
+  
+  // Move converted image to artifacts dir
+  const artifactImgPath = path.join(artifactDir, "sample_converted.jpg");
+  fs.copyFileSync(res7.outputPath, artifactImgPath);
+  console.log(`✅ 7. convert_image: REAL IMAGE CONVERSION PASSED (${res7.engine} -> test/artifacts/sample_converted.jpg)`);
 
   // 8. convert_audio: Verify audio conversion on real WAV asset
   const res8 = JSON.parse(await mediaTools.convert_audio.execute({ inputPath: wavFixture, targetFormat: "mp3" }));
   if (res8.status === "success") {
-    assert.ok(fs.existsSync(res8.outputPath), "Converted MP3 audio file must exist");
-    console.log("✅ 8. convert_audio: REAL AUDIO CONVERSION PASSED");
+    const artifactAudioPath = path.join(artifactDir, "sample_converted.mp3");
+    fs.copyFileSync(res8.outputPath, artifactAudioPath);
+    console.log(`✅ 8. convert_audio: REAL AUDIO CONVERSION PASSED (-> test/artifacts/sample_converted.mp3)`);
   } else {
     console.log(`⚠️  8. convert_audio: Missing ffmpeg. Install command: ${res8.installInstruction}`);
   }
 
-  // Cleanup output artifacts
-  fs.rmSync(tmpDir, { recursive: true, force: true });
-  console.log("\n🎉 REAL ASSETS PRODUCTION TEST SUITE COMPLETED!");
+  // NOTE: Test artifacts in test/artifacts/ are intentionally PRESERVED for AutoAthera CI to commit and push!
+  console.log("\n🎉 TEST ARTIFACTS PRESERVED IN test/artifacts/ FOR AutoAthera CI PUSH!");
 }
 
 runProductionTestSuite().catch(err => {
