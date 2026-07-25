@@ -26,18 +26,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Install FFmpeg (Ubuntu)
         if: runner.os == 'Linux'
-        run: sudo apt update && sudo apt install -y ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg || true
 
       - name: Install FFmpeg (macOS)
         if: runner.os == 'macOS'
-        run: brew install ffmpeg
+        run: brew install ffmpeg || true
 
       - name: Install FFmpeg (Windows)
         if: runner.os == 'Windows'
-        run: choco install ffmpeg -y
+        run: choco install ffmpeg -y || true
 
       - name: Run Exhaustive 53-Pair Matrix Test Suite
         run: npm test
@@ -47,6 +51,6 @@ jobs:
         run: |
           git config --global user.name "AutoAthera CI"
           git config --global user.email "autoathera@pyintel.cc"
-          git add test/matrix_artifacts/
+          git add test/artifacts/
           git status
           git diff --quiet && git diff --staged --quiet || (git commit -m "ci(AutoAthera): Auto-commit 53-pair verified matrix test artifacts [skip ci]" && git push)
