@@ -1,6 +1,6 @@
 {
   "name": "@pyintel/arc-module-document-media-suite",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PDF, Word, PowerPoint, Audio and Video Conversion Module for Apex Arc",
   "author": "Pyintel",
   "keywords": [
