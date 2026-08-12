@@ -1,6 +1,6 @@
 {
   "name": "@pyintel/arc-module-document-media-suite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "PDF, Word, PowerPoint, Audio and Video Conversion Module for Apex Arc",
   "author": "Pyintel",
   "keywords": [
@@ -14,7 +14,8 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node test/suite.test.js"
+    "test": "node test/suite.test.js",
+    "build": "echo \"No build required\""
   },
   "dependencies": {
     "fluent-ffmpeg": "^2.1.3",
