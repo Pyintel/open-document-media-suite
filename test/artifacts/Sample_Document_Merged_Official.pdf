@@ -1,0 +1,57 @@
+%PDF-1.4
+%PDF-1.4
+1 0 obj <</Type /Catalog /Pages 2 0 R>> endobj
+2 0 obj <</Type /Pages /Kinds [3 0 R] /Count 1>> endobj
+3 0 obj <</Type /Page /Parent 2 0 R /Resources <</Font <</F1 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>>>>> /Contents 4 0 R>> endobj
+4 0 obj <</Length 1205>> stream
+BT
+/F1 12 Tf
+72 712 Td
+(# Sample Document 1: Executive Technical Report
+
+**Organization:** Pyintel Open Ecosystem
+**Document ID:** PYINTEL-DOC-001
+**Status:** Approved & Verified
+**Audience:** Engineering Leadership, Platform Reviewers
+
+## Executive Summary
+
+This document is the official Pyintel sample asset for verifying native
+document generation and PDF rendering inside the open-document-media-suite.
+It is rendered to `Sample_Document_1_Executive_Report.pdf` by the matrix
+runner and then searched, merged) Tj
+ET
+endstream
+endobj
+trailer <</Root 1 0 R>>
+%%EOF
+%PDF-1.4
+1 0 obj <</Type /Catalog /Pages 2 0 R>> endobj
+2 0 obj <</Type /Pages /Kinds [3 0 R] /Count 1>> endobj
+3 0 obj <</Type /Page /Parent 2 0 R /Resources <</Font <</F1 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>>>>> /Contents 4 0 R>> endobj
+4 0 obj <</Length 1136>> stream
+BT
+/F1 12 Tf
+72 712 Td
+(# Sample Document 2: Architecture & Kinematics Specification
+
+**Organization:** Pyintel Open Ecosystem
+**Document ID:** PYINTEL-DOC-002
+**Status:** In Review
+**Audience:** Robotics, Tooling, Platform Integrators
+
+## Technical Overview
+
+This document is the second official Pyintel sample asset. It exercises
+the merge path: it is rendered to `Sample_Document_2_Architecture_Spec.pdf`
+and then merged with Sample Document 1 to produce
+`Sample_Document_Merged_Official.pdf`.
+
+## Topics
+) Tj
+ET
+endstream
+endobj
+trailer <</Root 1 0 R>>
+%%EOF
+%%EOF
